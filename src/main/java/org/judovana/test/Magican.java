@@ -18,7 +18,7 @@ public class Magican {
         }
     }
 
-    public void printSetup(PrintStream p){
+    public void printSetup(PrintStream p) {
         p.println("l1:");
         print(p, list1);
         p.println("l2:");
@@ -26,25 +26,25 @@ public class Magican {
     }
 
     private static void print(PrintStream p, Collection<Integer> c) {
-        for(Integer i: c){
-            p.println(""+i);
+        for (Integer i : c) {
+            p.println("" + i);
         }
     }
 
-    public Set<Integer> getMagic(){
-        return common(cut(list1),cut(list2));
+    public Set<Integer> getMagic() {
+        return common(cut(list1), cut(list2));
     }
 
-    public void printMagic(PrintStream p){
+    public void printMagic(PrintStream p) {
         Set<Integer> r = getMagic();
         p.println("r:");
-        print(p, r );
+        print(p, r);
     }
 
     static Set<Integer> common(Collection<Integer> l1, Collection<Integer> l2) {
         Set<Integer> d1 = findShared(l1, l2);
         Set<Integer> d2 = findShared(l2, l1);
-        return merge(d1,d2);
+        return merge(d1, d2);
     }
 
     private static Set<Integer> merge(Collection<Integer> l1, Collection<Integer> l2) {
@@ -56,9 +56,9 @@ public class Magican {
 
     static Set<Integer> findShared(Collection<Integer> l1, Collection<Integer> l2) {
         Set<Integer> r = new HashSet<>();
-        for(Integer i1: l1){
-            for(Integer i2: l2){
-                if (i2 == i1){
+        for (Integer i1 : l1) {
+            for (Integer i2 : l2) {
+                if (i2 == i1) {
                     r.add(i1);
                     break;
                 }
@@ -71,7 +71,7 @@ public class Magican {
         List l = new ArrayList(orig);
         l.sort(new MagicComparator());
         l.remove(0);
-        l.remove(l.size()-1);
+        l.remove(l.size() - 1);
         return l;
     }
 
